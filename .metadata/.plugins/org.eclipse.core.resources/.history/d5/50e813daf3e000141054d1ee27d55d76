@@ -22,9 +22,13 @@ public class PinchEvent {
 		return mPinchCenter;
 	}
 
+
+
 	public double getPinchDistance() {
 		return mPinchDistance;
 	}
+
+
 
 	public PinchEventLifeStage getPinchLifeStage() {
 		return mPinchLifeStage;
