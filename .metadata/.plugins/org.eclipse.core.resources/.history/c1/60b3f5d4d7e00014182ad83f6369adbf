@@ -1,7 +1,5 @@
 
 
-
-
 public class PinchEventHandler {
 
 	private final ImageComponent mImageComponent;

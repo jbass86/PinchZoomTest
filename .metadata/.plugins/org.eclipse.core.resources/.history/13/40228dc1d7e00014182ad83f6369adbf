@@ -1,5 +1,4 @@
-
-
+import PinchEvent.PinchEventLifeStage;
 
 
 public class PinchEventHandler {

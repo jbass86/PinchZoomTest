@@ -17,6 +17,16 @@ public class PinchEvent {
 		this.mPinchLifeStage = mPinchLifeStage;
 	}
 
+	
+	
+	public static enum PinchEventLifeStage{
+		PINCH_START,
+		PINCH_CONTINUE,
+		PINCH_END
+	}
+
+
+
 	public Point getPinchCenter() {
 		return mPinchCenter;
 	}

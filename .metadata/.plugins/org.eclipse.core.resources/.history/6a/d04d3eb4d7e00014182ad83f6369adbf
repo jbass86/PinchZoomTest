@@ -1,7 +1,4 @@
 
-
-
-
 public class PinchEventHandler {
 
 	private final ImageComponent mImageComponent;
@@ -13,9 +10,7 @@ public class PinchEventHandler {
 	
 	public void handlePinchEvent(PinchEvent pEvent){
 		
-		if (pEvent.getPinchLifeStage() == PinchEventLifeStage.PINCH_START){
-			
-		}
+		
 	}
 	
 }
