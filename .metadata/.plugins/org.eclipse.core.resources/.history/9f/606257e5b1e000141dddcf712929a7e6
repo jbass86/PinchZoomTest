@@ -1,0 +1,97 @@
+
+public class ImageComponent {
+
+	private double mPanelWidth;
+	
+	private double mPanelHeight;
+	
+	private double mImageWidth;
+	
+	private double mImageHeight;
+	
+	private double mXPanPercent;
+	
+	private double mYPanPercent;
+	
+	private double mZoomFactor;
+
+	public ImageComponent(){
+		
+		mPanelWidth = 1920;
+		mPanelHeight = 1080;
+		
+		mImageWidth = 960;
+		mImageHeight = 540;
+		
+		mXPanPercent = .5;
+		mYPanPercent = .5;
+		
+		mZoomFactor = 1;
+		
+	}
+	
+	public double getmPanelWidth() {
+		return mPanelWidth;
+	}
+
+	public void setmPanelWidth(double mPanelWidth) {
+		this.mPanelWidth = mPanelWidth;
+	}
+
+	public double getmPanelHeight() {
+		return mPanelHeight;
+	}
+
+	public void setmPanelHeight(double mPanelHeight) {
+		this.mPanelHeight = mPanelHeight;
+	}
+
+	public double getmImageWidth() {
+		return mImageWidth;
+	}
+
+	public void setmImageWidth(double mImageWidth) {
+		this.mImageWidth = mImageWidth;
+	}
+
+	public double getmImageHeight() {
+		return mImageHeight;
+	}
+
+	public void setmImageHeight(double mImageHeight) {
+		this.mImageHeight = mImageHeight;
+	}
+
+	public double getmXPanPercent() {
+		return mXPanPercent;
+	}
+
+	public void setmXPanPercent(double mXPanPercent) {
+		this.mXPanPercent = mXPanPercent;
+	}
+
+	public double getmYPanPercent() {
+		return mYPanPercent;
+	}
+
+	public void setmYPanPercent(double mYPanPercent) {
+		this.mYPanPercent = mYPanPercent;
+	}
+
+	public double getmZoomFactor() {
+		return mZoomFactor;
+	}
+
+	public void setmZoomFactor(double mZoomFactor) {
+		this.mZoomFactor = mZoomFactor;
+	}
+
+	@Override
+	public String toString() {
+		return "ImageComponent [mPanelWidth=" + mPanelWidth + ", mPanelHeight="
+				+ mPanelHeight + ", mImageWidth=" + mImageWidth
+				+ ", mImageHeight=" + mImageHeight + ", mXPanPercent="
+				+ mXPanPercent + ", mYPanPercent=" + mYPanPercent
+				+ ", mZoomFactor=" + mZoomFactor + "]";
+	}
+}

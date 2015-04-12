@@ -1,0 +1,14 @@
+
+public class PinchEvent {
+
+	private final Point mPinchCenter;
+	
+	private final double mPinchDistance;
+	
+	
+	public static enum PinchEventLifeStage{
+		PINCH_START,
+		PINCH_CONTINUE,
+		PINCH_END
+	}
+}
