@@ -50,7 +50,7 @@ public class PinchEventHandler {
 		}else if (pEvent.getPinchLifeStage() == PinchEventLifeStage.PINCH_CONTINUE){
 
 			double pinchOffset = pEvent.getPinchDistance() - mInitialPinchDistance;
-			double newZoom = mInitialZoom + (pinchOffset * .01);
+			double newZoom = mInitialZoom + pinchOffset * .01;
 			System.out.println("The new zoom is going to be " + newZoom);
 			double zoomRatio = (newZoom - mInitialZoom) / newZoom;
 			System.out.println("The zoom ratio is " + zoomRatio);
