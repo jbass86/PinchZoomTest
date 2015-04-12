@@ -1,0 +1,27 @@
+package main.pinch;
+import main.image.ImageComponent;
+
+
+
+
+
+public class PinchEventHandler {
+
+	private final ImageComponent mImageComponent;
+	
+	public PinchEventHandler(final ImageComponent pComponent){
+		
+		mImageComponent = pComponent;
+	}
+	
+	public void handlePinchEvent(PinchEvent pEvent){
+		
+		if (pEvent.getPinchLifeStage() == PinchEventLifeStage.PINCH_START){
+			double pinchDistanceX = Math.abs(pEvent.getPinchCenter().getX() - (mImageComponent.getPanelWidth() / 2));
+			double pinchDistanceY = Math.abs(pEvent.getPinchCenter().getX() - (mImageComponent.getPanelHeight() / 2));
+			System.out.println("Pixels from center X: " + pinchDistanceX);
+			System.out.println("Pixels from center Y: " + pinchDistanceY);
+		}
+	}
+	
+}

@@ -1,0 +1,50 @@
+package main.pinch;
+import java.awt.Point;
+
+import main.image.ImageComponent;
+
+
+
+
+
+public class PinchEventHandler {
+
+	private final ImageComponent mImageComponent;
+
+	private double mInitialPinchDistance = 0;
+	
+	private Point mPinchCenter = new Point(0, 0);
+	
+	public PinchEventHandler(final ImageComponent pComponent){
+		
+		mImageComponent = pComponent;
+	}
+	
+	public void handlePinchEvent(PinchEvent pEvent){
+		
+		if (pEvent.getPinchLifeStage() == PinchEventLifeStage.PINCH_START){
+			double pinchDistanceX = Math.abs(pEvent.getPinchCenter().getX() - (mImageComponent.getPanelWidth() / 2));
+			double pinchDistanceY = Math.abs(pEvent.getPinchCenter().getX() - (mImageComponent.getPanelHeight() / 2));
+			System.out.println("Pixels from center X: " + pinchDistanceX);
+			System.out.println("Pixels from center Y: " + pinchDistanceY);
+			
+			System.out.println("X distance percent " + pinchDistanceX / mImageComponent.getPanelWidth());
+			System.out.println("Y distance percent " + pinchDistanceY / mImageComponent.getPanelHeight());
+			
+			mInitialPinchDistance = pEvent.getPinchDistance();
+			mPinchCenter = pEvent.getPinchCenter();
+		
+		}else if (pEvent.getPinchLifeStage() == PinchEventLifeStage.PINCH_CONTINUE){
+			
+			if (pEvent.getPinchDistance() > mInitialPinchDistance){
+				mImageComponent.setZoomFactor(mImageComponent.getZoomFactor() + .1);
+			}
+			
+		}else if (pEvent.getPinchLifeStage() == PinchEventLifeStage.PINCH_END){
+			
+			mInitialPinchDistance = 0;
+			mPinchCenter = new Point(0, 0);
+		}
+	}
+	
+}

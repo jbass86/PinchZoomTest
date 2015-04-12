@@ -1,8 +1,10 @@
 package main.image;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
@@ -10,6 +12,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
+import javax.swing.RepaintManager;
 
 
 public class ImageComponent {
@@ -27,6 +30,8 @@ public class ImageComponent {
 	private final Component mComponent;
 
 	private BufferedImage mImage;
+	
+	private Point mZoomTestPoint;
 	
 	public ImageComponent(){
 
@@ -79,6 +84,11 @@ public class ImageComponent {
 				transform.scale(getZoomFactor(), getZoomFactor());
 				
 				g2d.drawImage(mImage, transform, null);
+				
+				if (mZoomTestPoint != null){
+					g2d.setColor(Color.RED);
+					g2d.fillRect(mZoomTestPoint.x, mZoomTestPoint.y, 10, 10);
+				}
 			}
 		};
 		
@@ -138,6 +148,11 @@ public class ImageComponent {
 
 	public void setZoomFactor(double mZoomFactor) {
 		this.mZoomFactor = mZoomFactor;
+		mComponent.repaint();
+	}
+	
+	public void setZoomTestPoint(final Point pTestPoint){
+		mZoomTestPoint = pTestPoint;
 		mComponent.repaint();
 	}
 
