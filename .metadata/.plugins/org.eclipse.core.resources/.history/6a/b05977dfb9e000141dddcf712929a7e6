@@ -1,0 +1,23 @@
+import java.awt.Component;
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		ImageComponent component = new ImageComponent();
+		
+		PinchEventHandler pincher = new PinchEventHandler(component);
+		
+		//Create some fake pinch events and send them through to the handler...
+		
+		final JFrame frame = new JFrame();
+		
+		frame.setPreferredSize(new Dimension(960, 720));
+		frame.add(component.getComponent());
+		
+	}
+}

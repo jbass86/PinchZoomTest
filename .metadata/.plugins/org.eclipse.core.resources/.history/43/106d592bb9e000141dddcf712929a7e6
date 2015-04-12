@@ -1,0 +1,79 @@
+import java.awt.Component;
+
+
+public class ImageComponent {
+
+	private double mPanelWidth;
+	
+	private double mPanelHeight;
+	
+	private double mXPanPercent;
+	
+	private double mYPanPercent;
+	
+	private double mZoomFactor;
+	
+	private final Component mComponent;
+	
+	public ImageComponent(){
+		
+		mPanelWidth = 960;
+		mPanelHeight = 720;
+		
+		
+		mXPanPercent = .5;
+		mYPanPercent = .5;
+		
+		mZoomFactor = 1;
+	}
+	
+	public double getPanelWidth() {
+		return mPanelWidth;
+	}
+
+	public double getPanelHeight() {
+		return mPanelHeight;
+	}
+
+
+	public double getImageWidth() {
+		return mImageWidth;
+	}
+
+	public double getImageHeight() {
+		return mImageHeight;
+	}
+
+	public double getXPanPercent() {
+		return mXPanPercent;
+	}
+
+	public void setXPanPercent(double mXPanPercent) {
+		this.mXPanPercent = mXPanPercent;
+	}
+
+	public double getYPanPercent() {
+		return mYPanPercent;
+	}
+
+	public void setYPanPercent(double mYPanPercent) {
+		this.mYPanPercent = mYPanPercent;
+	}
+
+	public double getZoomFactor() {
+		return mZoomFactor;
+	}
+
+	public void setZoomFactor(double mZoomFactor) {
+		this.mZoomFactor = mZoomFactor;
+	}
+	
+	@Override
+	public String toString() {
+		return "ImageComponent [mPanelWidth=" + mPanelWidth + ", mPanelHeight="
+				+ mPanelHeight + ", mImageWidth=" + mImageWidth
+				+ ", mImageHeight=" + mImageHeight + ", mXPanPercent="
+				+ mXPanPercent + ", mYPanPercent=" + mYPanPercent
+				+ ", mZoomFactor=" + mZoomFactor + "]";
+	}
+}

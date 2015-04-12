@@ -1,0 +1,122 @@
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.JComponent;
+
+
+public class ImageComponent {
+
+	private double mPanelWidth;
+
+	private double mPanelHeight;
+
+	private double mXPanPercent;
+
+	private double mYPanPercent;
+
+	private double mZoomFactor;
+
+	private final Component mComponent;
+
+	private BufferedImage mImage;
+	
+	public ImageComponent(){
+
+		mPanelWidth = 960;
+		mPanelHeight = 720;
+
+
+		mXPanPercent = .5;
+		mYPanPercent = .5;
+
+		mZoomFactor = 1;
+
+		try {
+			mImage = ImageIO.read(this.getClass().getResourceAsStream("CherryBlossom.jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		mComponent = new JComponent() {
+
+			@Override
+			protected void paintComponent(Graphics g) {
+				// TODO Auto-generated method stub
+				super.paintComponent(g);
+				
+				Graphics2D g2d = (Graphics2D)g;
+				
+				AffineTransform transform = new AffineTransform();
+				
+			//	transform.translate(100, 100);
+				transform.scale(2, 2);
+				
+				g2d.drawImage(mImage, transform, null);
+			}
+		};
+		
+		mComponent.setPreferredSize(new Dimension(960, 720));
+
+	}
+
+	public Component getComponent(){
+		return mComponent;
+	}
+	
+	public double getPanelWidth() {
+		return mPanelWidth;
+	}
+
+	public double getPanelHeight() {
+		return mPanelHeight;
+	}
+
+
+	public double getImageWidth() {
+		return mImage.getWidth();
+	}
+
+	public double getImageHeight() {
+		return mImage.getHeight();
+	}
+
+	public double getXPanPercent() {
+		return mXPanPercent;
+	}
+
+	public void setXPanPercent(double mXPanPercent) {
+		this.mXPanPercent = mXPanPercent;
+	}
+
+	public double getYPanPercent() {
+		return mYPanPercent;
+	}
+
+	public void setYPanPercent(double mYPanPercent) {
+		this.mYPanPercent = mYPanPercent;
+	}
+
+	public double getZoomFactor() {
+		return mZoomFactor;
+	}
+
+	public void setZoomFactor(double mZoomFactor) {
+		this.mZoomFactor = mZoomFactor;
+	}
+
+	@Override
+	public String toString() {
+		return "ImageComponent [mPanelWidth=" + mPanelWidth + ", mPanelHeight="
+				+ mPanelHeight + ", mXPanPercent=" + mXPanPercent
+				+ ", mYPanPercent=" + mYPanPercent + ", mZoomFactor="
+				+ mZoomFactor + ", mComponent=" + mComponent + ", mImage="
+				+ mImage + "]";
+	}
+}
