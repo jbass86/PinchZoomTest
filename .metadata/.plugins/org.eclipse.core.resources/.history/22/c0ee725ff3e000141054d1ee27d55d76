@@ -46,6 +46,7 @@ public class ImageComponent {
 		try {
 			mImage = ImageIO.read(this.getClass().getResourceAsStream("CherryBlossom.jpg"));
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -12,6 +12,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
+import javax.swing.RepaintManager;
 
 
 public class ImageComponent {
@@ -46,6 +47,7 @@ public class ImageComponent {
 		try {
 			mImage = ImageIO.read(this.getClass().getResourceAsStream("CherryBlossom.jpg"));
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -61,6 +63,8 @@ public class ImageComponent {
 				double widthFit = getPanelWidth() / mImage.getWidth();
 				double heightFit = getPanelHeight() / mImage.getHeight();
 				double fitScale = Math.min(widthFit, heightFit);
+//						fitToScreen(new Dimension(mImage.getWidth(), mImage.getHeight()), 
+//						new Dimension((int)getPanelWidth(), (int)getPanelHeight()));
 				
 				Dimension fitSize = new Dimension(
 						(int)(mImage.getWidth() * fitScale),
@@ -94,6 +98,13 @@ public class ImageComponent {
 		
 		mComponent.setPreferredSize(new Dimension(960, 720));
 
+	}
+
+	private double fitToScreen(final Dimension pImageSize, final Dimension pCompSize){
+		double widthFit = pCompSize.getWidth() / pImageSize.getWidth();
+		double heightFit = pCompSize.getHeight() / pImageSize.getHeight();
+		double fitZoom = Math.min(widthFit, heightFit);
+		return fitZoom;
 	}
 	
 	public Component getComponent(){

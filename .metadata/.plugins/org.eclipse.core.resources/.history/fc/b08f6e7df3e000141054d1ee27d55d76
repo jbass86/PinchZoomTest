@@ -33,10 +33,7 @@ public class Main {
 		
 		
 		//Start doing some pinch stuff...
-		//Set this point to whatever you want and it should pinch zoom around it
 		final Point zoomTestPoint = new Point(800, 200);
-		
-		//just set this so we can see the pinch point on the image panel
 		component.setZoomTestPoint(zoomTestPoint);
 		
 		PinchEvent firstEvent = new PinchEvent(zoomTestPoint, pinchDistance, PinchEventLifeStage.PINCH_START);
